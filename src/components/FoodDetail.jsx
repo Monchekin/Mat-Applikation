@@ -1,19 +1,20 @@
 import { useState } from 'react';
-import './FoodDetail.css'; 
+import './Food-Search.css';
 
 const FoodDetail = ({ pickedMeal }) => {
 	const [ingredientsArr, setIngredientsArr] = useState([]);
 
 	return (
 		<div className='food-detail-container'>
-			<ul>
-				<li>
-					<p>{pickedMeal.strCategory}</p>
-					<hr />
-					<p className="instructions">{pickedMeal.strInstructions}</p>
-					<hr />
-				</li>
-				<h2>Ingredients:</h2>
+			<ul className='food-meals'>
+				<h2>{pickedMeal.strMeal}</h2>
+				<p>
+					<span class='Kind-of-meal'>Category: {pickedMeal.strCategory}</span>
+				</p>
+
+				<hr />
+
+				<h3>Ingredients:</h3>
 				<li>
 					{ingredientsArr.map((ingredient, index) => (
 						<li key={index}>
@@ -21,6 +22,9 @@ const FoodDetail = ({ pickedMeal }) => {
 						</li>
 					))}
 				</li>
+				<hr />
+
+				<p className='food-instructions'>{pickedMeal.strInstructions}</p>
 			</ul>
 		</div>
 	);

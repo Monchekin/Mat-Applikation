@@ -1,0 +1,95 @@
+.wrap {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	gap: 10px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.search-container {
+	grid-column: 1 / 2;
+	grid-row: 1;
+	text-align: center;
+}
+
+.search-input {
+	border: 1px black solid;
+	border-radius: 10px;
+	background-color: #f2f2f2;
+	text-align: center;
+}
+
+.search-input h4 {
+	margin-bottom: 10px;
+}
+
+.search-input input {
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	width: 50%;
+}
+
+button {
+	background-color: #b8a27c;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-top: 10px;
+	width: 50%;
+	margin-bottom: 15px;
+}
+
+button:hover {
+	background-color: #8f8064;
+}
+
+.SearchMeals {
+	background-color: #bbd9d2;
+	border-radius: 5px;
+}
+
+.SearchMeals li {
+	border-bottom: 2px black solid;
+	margin-right: 5%;
+	padding-bottom: 3%;
+	padding-top: 0.001em;
+}
+
+img {
+	width: 15vw;
+	height: auto;
+	border: 2px black solid;
+}
+
+/* ----- FoodDetail ----- */
+.food-detail-container {
+	position: fixed;
+	left: 50%;
+	background-color: #dcc1c1;
+	border-radius: 5px;
+	padding-right: 2%;
+}
+
+.food-meals {
+	flex-basis: 50%;
+}
+
+.Kind-of-meal {
+	background-color: rgb(196, 195, 195);
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+.food-instructions {
+	font-size: 1.1rem;
+	line-height: 1.6;
+}
+
+hr {
+	margin-right: 3%;
+}

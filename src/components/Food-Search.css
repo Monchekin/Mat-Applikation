@@ -73,6 +73,8 @@ img {
 	background-color: #dcc1c1;
 	border-radius: 5px;
 	padding-right: 2%;
+	max-height: 100vh;
+	overflow: auto;
 }
 
 .food-meals {
@@ -88,6 +90,14 @@ img {
 .food-instructions {
 	font-size: 1.1rem;
 	line-height: 1.6;
+}
+
+.youtube {
+	background-color: #c09090;
+}
+
+.youtube:hover {
+	background-color: #936d6d;
 }
 
 hr {

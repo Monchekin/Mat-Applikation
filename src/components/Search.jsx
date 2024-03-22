@@ -20,12 +20,13 @@ const Search = ({ setPickedMeal }) => {
 	return (
 		<div className='search-container'>
 			<div className='search-input'>
-				<h2>Search for a meal</h2>
+				<h2>Search by dish or food category</h2>
 				<input
 					id='myInput'
 					type='text'
 					value={foodSearch}
 					onChange={(event) => setFoodSearch(event.target.value)}
+					onClick={() => setFoodSearch('')}
 				/>
 				<button onClick={apiMeals}>Search</button>
 			</div>

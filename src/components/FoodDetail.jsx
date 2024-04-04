@@ -25,7 +25,11 @@ const FoodDetail = ({ pickedMeal }) => {
 				</li>
 				<hr />
 
-				<p className='food-instructions'>{pickedMeal.strInstructions}</p>
+				{pickedMeal.strInstructions.split('\n\r').map((instr, idx) => (
+					<p className='food-instructions' key={idx}>
+						{instr}
+					</p>
+				))}
 
 				<a href={pickedMeal.strYoutube} target='_blank'>
 					<button className='youtube'>For more inspiration</button>

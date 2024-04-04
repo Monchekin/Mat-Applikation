@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import './Food-Search.css';
 
 const Search = ({ setPickedMeal }) => {
 	const [foodSearch, setFoodSearch] = useState('');
 	const [food, setFood] = useState([]);
+	const searchButtonRef = useRef(null);
+
+	useEffect(() => {
+		if (!foodSearch) {
+			searchButtonRef.current.disabled = true;
+		} else {
+			searchButtonRef.current.disabled = false;
+		}
+	}, [foodSearch]);
 
 	// lägg till useEffect till API
 	const apiMeals = async () => {
@@ -17,6 +26,20 @@ const Search = ({ setPickedMeal }) => {
 		setFood(data.meals);
 	};
 
+	// Funktion för att ändra texten på knappen
+	const changeButtonText = () => {
+		searchButtonRef.current.innerText = 'Search for a new dish';
+		setTimeout(() => {
+			searchButtonRef.current.innerText = 'Search';
+		}, 10000);
+	};
+
+	const handleKeyDownSearch = (event) => {
+		if (event.key === 'Enter') {
+			apiMeals();
+		}
+	};
+
 	return (
 		<div className='search-container'>
 			<div className='search-input'>
@@ -25,10 +48,19 @@ const Search = ({ setPickedMeal }) => {
 					id='myInput'
 					type='text'
 					value={foodSearch}
+					onKeyDown={(event) => handleKeyDownSearch(event)}
 					onChange={(event) => setFoodSearch(event.target.value)}
 					onClick={() => setFoodSearch('')}
 				/>
-				<button onClick={apiMeals}>Search</button>
+				<button
+					ref={searchButtonRef}
+					onClick={() => {
+						changeButtonText();
+						apiMeals();
+					}}>
+					Search
+				</button>{' '}
+				{/* Använd useRef för att referera till knappen */}
 			</div>
 			<div>
 				<ul className='SearchMeals'>

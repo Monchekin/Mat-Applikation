@@ -48,6 +48,11 @@ button:hover {
 	background-color: #8f8064;
 }
 
+button:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
 .SearchMeals {
 	background-color: #bbd9d2;
 	border-radius: 5px;
